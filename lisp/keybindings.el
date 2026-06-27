@@ -11,10 +11,20 @@
 (define-key my/launch-map (kbd "k") #'my/open-konsole-here)
 (define-key my/launch-map (kbd "d") #'my/open-dolphin-here)
 
+(define-prefix-command 'my/open-map)
+(global-set-key (kbd "C-c o") #'my/open-map)
+(define-key my/open-map (kbd "i") #'my/open-init-file)
+
 (global-set-key (kbd "C-c k") #'kill-line-to-start)
 (global-set-key (kbd "C-c d") #'delete-whole-line-up)
 (global-set-key (kbd "C-c b") #'duplicate-line-or-region)
 (global-set-key (kbd "C-c ;") #'my-comment-at-indentation)
+
+(global-set-key (kbd "<f5>") 'save-buffer)
+(global-set-key (kbd "<f9>") 'other-window)
+
+(with-eval-after-load 'dired
+  (define-key dired-mode-map [mouse-1] 'dired-advertised-find-file))
 
 (with-eval-after-load 'eglot
   (define-key eglot-mode-map (kbd "C-c r") #'eglot-rename)

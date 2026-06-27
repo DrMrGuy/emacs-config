@@ -57,4 +57,9 @@
       (tab-bar-close-other-tabs)
     (message "Aborted.")))
 
+(defun my/open-init-file ()
+  "Open the Emacs init.el file."
+  (interactive)
+  (find-file user-init-file))
+
 (provide 'custom-functions)

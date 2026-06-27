@@ -49,4 +49,14 @@
   :ensure t
   :hook (LaTeX-mode . writegood-mode))
 
+(use-package gdscript-mode
+  :ensure t
+  :mode "\\.gd\\'"
+  :hook (gdscript-mode . eglot-ensure)
+  :config
+  ;; Add Godot LSP server configuration to Eglot
+  (with-eval-after-load 'eglot
+    (add-to-list 'eglot-server-programs
+                 '(gdscript-mode . ("localhost" 6005)))))
+
 (provide 'ide-settings)

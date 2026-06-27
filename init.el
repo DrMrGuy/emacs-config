@@ -4,16 +4,21 @@
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+
 (package-initialize)
 
+(unless (and package-archive-contents (package-installed-p 'use-package))
+  (package-refresh-contents))
+
 (unless (package-installed-p 'use-package)
-  (package-refresh-contents)
   (package-install 'use-package))
+
 (require 'use-package)
 (setq use-package-always-ensure t)
 
 (setq default-directory "~/Dev/")
 
+(server-start)
 
 (require 'ui-settings)
 (require 'editor-settings)
@@ -22,5 +27,3 @@
 (require 'custom-functions)
 (require 'playground)
 (require 'keybindings)
-
-
