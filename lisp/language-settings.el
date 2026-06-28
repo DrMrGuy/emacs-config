@@ -67,8 +67,7 @@
         TeX-auto-save t)
 
   ;; Ensure .tex files open in LaTeX mode, not Plain TeX
-  (add-to-list 'auto-mode-alist '("\\.tex\\'" . latex-mode))
-  (setq-default major-mode 'latex-mode))
+  (add-to-list 'auto-mode-alist '("\\.tex\\'" . latex-mode)))
 
 (use-package pdf-tools
   :ensure t

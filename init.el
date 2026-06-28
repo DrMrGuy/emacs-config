@@ -18,6 +18,10 @@
 
 (setq default-directory "~/Dev/")
 
+(require 'server)
+(setq server-name "godot")
+(when (server-running-p)
+  (server-force-delete))
 (server-start)
 
 (require 'secrets)
