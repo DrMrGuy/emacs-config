@@ -45,4 +45,13 @@
 
 (playground-setup-default-keybinding)
 
+;; Direct binding to hot-swap models/backends using gptel's transient menu
+(global-set-key (kbd "C-c a m") #'gptel-menu)
+
+;; Normal interaction bindings
+(global-set-key (kbd "C-c a g") #'gptel)
+(global-set-key (kbd "C-c a s") #'gptel-send)
+
+(global-set-key (kbd "C-c a p") #'gptel-add)
+
 (provide 'keybindings)

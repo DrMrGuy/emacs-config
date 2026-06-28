@@ -20,6 +20,7 @@
 
 (server-start)
 
+(require 'secrets)
 (require 'ui-settings)
 (require 'editor-settings)
 (require 'ide-settings)

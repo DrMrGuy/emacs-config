@@ -3,3 +3,4 @@
 !/lisp/
 !/playground-templates/
 *~
+/lisp/secrets.el

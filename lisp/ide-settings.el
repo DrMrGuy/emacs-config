@@ -59,4 +59,24 @@
     (add-to-list 'eglot-server-programs
                  '(gdscript-mode . ("localhost" 6005)))))
 
+(use-package gptel
+  :ensure t
+  :config
+  ;; Register the Gemini backend explicitly using the key variable from secrets.el
+  (setq gptel-backend
+        (gptel-make-gemini "Gemini"
+          :key (lambda () gptel-api-key) ; Dynamically reads the key set by secrets.el
+          :stream t))
+
+  ;; Set your default model
+  (setq gptel-model 'gemini-3.5-flash)
+
+  (setq gptel-default-mode 'org-mode)
+  
+  ;; Optional: If the default list lacks the exact versions you want, 
+  ;; you can explicitly populate the models list for this backend:
+  (setf (gptel-backend-models gptel-backend)
+        '(gemini-3.5-flash
+          gemini-3.1-pro)))
+
 (provide 'ide-settings)
